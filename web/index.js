@@ -59,23 +59,23 @@ let funcs = [[function (ind) {},function (ind) {}],[
 function draw() {
     let ind = size.w + 1;
     for(let i = 0; i < size.h; i++){
-        ind+=1;
+        ind++;
         for(let g = 0; g < size.w; g++){
-            ind+=1;
             funcs[+(arrs[fl][ind] !== arrs[(fl+1)&1][ind])][arrs[fl][ind]](ind);
+            ind++;
         }
-        ind+=1;
+        ind++;
     }
 }
 function lazyDraw() {
     let ind = size.w + 1;
     for(let i = 0; i < size.h; i++){
-        ind+=1;
+        ind++;
         for(let g = 0; g < size.w; g++){
-            ind+=1;
             funcs[1][arrs[fl][ind]](ind);
+            ind++;
         }
-        ind+=1;
+        ind++;
     }
 }
 
@@ -88,9 +88,9 @@ function iteration() {
 
     let ind = size.w + 1;
     for(let i = 0; i < size.h; i++){
-        ind+=1;
+        ind++;
         for(let g = 0; g < size.w; g++){
-            ind+=1;
+            ind++;
             const n = arrs[(fl+1)&1][ind];
             if (n) {
                 sum[ind - (size.w + 2) - 1] += n;
@@ -103,16 +103,16 @@ function iteration() {
                 sum[ind + (size.w + 2) + 1] += n;
             }
         }
-        ind+=1;
+        ind++;
     }
     ind = size.w + 1;
     for (let i = 0; i < size.h; i++){
-        ind+=1;
+        ind++;
         for (let g = 0; g < size.w; g++){
             ind++;
             arrs[fl][ind] = pos[arrs[(fl+1)&1][ind]][sum[ind]];
         }
-        ind+=1
+        ind++;
     }
 }
 // setInterval(function(){console.log(count)},10000);
